@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhubaneswar Metro Navigator - Futuristic Transit System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Animated Background -->
+        <div class="background-overlay">
+            <div class="particles-container" id="particles"></div>
+            <div class="grid-overlay"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <div class="train-symbol">🚇</div>
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="logo-title">BHUBANESWAR METRO</h1>
+                            <span class="logo-subtitle">Neural Transit Network</span>
+                        </div>
+                    </div>
+                    <div class="status-indicator">
+                        <div class="pulse-dot"></div>
+                        <span>SYSTEM ONLINE</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h2 class="hero-title">
+                            <span class="glitch-text">NAVIGATE</span>
+                            <span class="neon-text">THE FUTURE</span>
+                        </h2>
+                        <p class="hero-description">Advanced pathfinding using quantum algorithms</p>
+                    </div>
+                </section>
+
+                <!-- Route Planning Panel -->
+                <section class="route-panel">
+                    <div class="glass-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Route Calculator</h3>
+                            <div class="loading-indicator" id="loadingWheel">
+                                <div class="train-wheel"></div>
+                            </div>
+                        </div>
+
+                        <div class="route-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sourceStation" class="form-label">
+                                        <span class="label-icon">🚉</span>
+                                        Origin Station
+                                    </label>
+                                    <div class="input-container">
+                                        <input type="text" 
+                                               id="sourceStation" 
+                                               class="station-input"
+                                               placeholder="Enter departure station..."
+                                               autocomplete="off">
+                                        <div class="autocomplete-dropdown" id="sourceDropdown"></div>
+                                    </div>
+                                </div>
+
+                                <div class="swap-button-container">
+                                    <button class="swap-button" id="swapStations">
+                                        <div class="swap-icon">⇄</div>
+                                    </button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="destinationStation" class="form-label">
+                                        <span class="label-icon">🎯</span>
+                                        Destination Station
+                                    </label>
+                                    <div class="input-container">
+                                        <input type="text" 
+                                               id="destinationStation" 
+                                               class="station-input"
+                                               placeholder="Enter destination station..."
+                                               autocomplete="off">
+                                        <div class="autocomplete-dropdown" id="destinationDropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button class="btn btn--primary calculate-button" id="calculateRoute">
+                                    <span class="btn-text">Calculate Route</span>
+                                    <div class="btn-effect"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Results Panel -->
+                <section class="results-panel" id="resultsPanel">
+                    <div class="glass-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Route Information</h3>
+                            <div class="route-status" id="routeStatus"></div>
+                        </div>
+
+                        <div class="route-summary" id="routeSummary">
+                            <div class="summary-card">
+                                <div class="summary-icon">📏</div>
+                                <div class="summary-content">
+                                    <span class="summary-label">Total Distance</span>
+                                    <span class="summary-value" id="totalDistance">--</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-card">
+                                <div class="summary-icon">⏱️</div>
+                                <div class="summary-content">
+                                    <span class="summary-label">Travel Time</span>
+                                    <span class="summary-value" id="totalTime">--</span>
+                                </div>
+                            </div>
+
+                            <div class="summary-card">
+                                <div class="summary-icon">🔄</div>
+                                <div class="summary-content">
+                                    <span class="summary-label">Interchanges</span>
+                                    <span class="summary-value" id="totalInterchanges">--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="route-path" id="routePath">
+                            <div class="path-header">
+                                <h4>Optimal Route</h4>
+                                <div class="train-animation">
+                                    <div class="train-icon">🚇</div>
+                                </div>
+                            </div>
+                            <div class="path-stations" id="pathStations"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Station Information -->
+                <section class="station-info-panel" id="stationInfo">
+                    <div class="glass-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">Station Network</h3>
+                        </div>
+                        <div class="stations-grid" id="stationsGrid"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 Bhubaneswar Metro Neural Network. Powered by Quantum Algorithms.</p>
+                    <div class="footer-tech">
+                        <span>Dijkstra's Algorithm</span> | 
+                        <span>Real-time Pathfinding</span> | 
+                        <span>20 Stations Connected</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
